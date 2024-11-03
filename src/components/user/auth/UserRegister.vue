@@ -16,7 +16,7 @@
 							<div class="underline"></div>
 							<label><i class="fa-solid fa-envelope"></i> Email</label>
 						</div>
-						<span v-if="errors.email" class="text-danger">{{ errors.email[0] }}</span>
+						<span v-if="errors.email" id="register_errors_email" class="text-danger">{{ errors.email[0] }}</span>
 						<br>
 						<br>
 						<div class="input-form">
@@ -24,7 +24,7 @@
 							<div class="underline"></div>
 							<label><i class="fa-solid fa-user"></i> Username</label>
 						</div>
-						<span v-if="errors.username" class="text-danger">{{ errors.username[0] }}</span>
+						<span v-if="errors.username" id="register_errors_username" class="text-danger">{{ errors.username[0] }}</span>
 						<br>
 						<br>
 						<div class="input-form">
@@ -34,7 +34,7 @@
 									:class="{ 'fa-solid': true, 'fa-eye': !isShow, 'fa-eye-slash': isShow }"></i></strong>
 							<div class="underline"></div><label><i class="fa-solid fa-lock"></i> Password</label>
 						</div>
-						<span v-if="errors.password" class="text-danger">{{ errors.password[0] }}</span>
+						<span v-if="errors.password" id="register_errors_password" class="text-danger">{{ errors.password[0] }}</span>
 						<br>
 						<br>
 						<div class="input-form">
@@ -42,7 +42,7 @@
 							<div class="underline"></div>
 							<label><i class="fa-solid fa-signature"></i> First Name</label>
 						</div>
-						<span v-if="errors.first_name" class="text-danger">{{ errors.first_name[0] }}</span>
+						<span v-if="errors.first_name" id="register_errors_first_name" class="text-danger">{{ errors.first_name[0] }}</span>
 						<br>
 						<br>
 						<div class="input-form">
@@ -50,12 +50,12 @@
 							<div class="underline"></div>
 							<label><i class="fa-solid fa-signature"></i> Last Name</label>
 						</div>
-						<span v-if="errors.last_name" class="text-danger">{{ errors.last_name[0] }}</span>
+						<span v-if="errors.last_name" id="register_errors_last_name" class="text-danger">{{ errors.last_name[0] }}</span>
 						<br>
 						<a class="under" style="text-decoration: none;color: var(--user-color);cursor: pointer;" @click="gotoLogin()" >Log in to the system ?</a><br>
 
-						<button type="submit" class="mt-4 btn-pers" id="login_button"><i
-								class="fa-solid fa-user-plus"></i> Rgister</button>
+						<button type="submit" class="mt-4 btn-pers" id="register_button"><i
+								class="fa-solid fa-user-plus"></i> Register</button>
 					</form>
 				</div>
 			</div>

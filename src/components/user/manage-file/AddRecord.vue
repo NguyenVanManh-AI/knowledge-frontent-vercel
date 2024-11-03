@@ -27,7 +27,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>File Upload</label><br>
-                                        <input type="file" ref="fileInput" id="file" @change="handleFileUpload" accept=".txt,.docx,.doc,.pdf" />
+                                        <input type="file" ref="fileInput" id="file" @change="handleFileUpload" accept=".txt" />
                                         <br>
                                         <span v-if="errors.file" id="add_file_errors_name" class="text-danger">{{ errors.file[0] }}<br></span>
                                     </div>

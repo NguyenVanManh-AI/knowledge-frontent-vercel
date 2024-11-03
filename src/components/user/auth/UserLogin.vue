@@ -16,7 +16,7 @@
 							<div class="underline"></div>
 							<label><i class="fa-solid fa-user"></i> Username</label>
 						</div>
-						<span v-if="errors.username" class="text-danger">{{ errors.username[0] }}</span>
+						<span v-if="errors.username" id="login_errors_username" class="text-danger">{{ errors.username[0] }}</span>
 						<br>
 						<br>
 						<div class="input-form">
@@ -26,7 +26,7 @@
 									:class="{ 'fa-solid': true, 'fa-eye': !isShow, 'fa-eye-slash': isShow }"></i></strong>
 							<div class="underline"></div><label><i class="fa-solid fa-lock"></i> Password</label>
 						</div>
-						<span v-if="errors.password" class="text-danger">{{ errors.password[0] }}</span>
+						<span v-if="errors.password" id="login_errors_password" class="text-danger">{{ errors.password[0] }}</span>
 						<br>
 						<a class="under" style="text-decoration: none;color: var(--user-color);cursor: pointer;" @click="gotoRegister()" >Register account ? </a><br>
 
