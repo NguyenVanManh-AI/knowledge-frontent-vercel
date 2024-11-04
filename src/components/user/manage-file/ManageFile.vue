@@ -62,7 +62,7 @@
                                 <th class="table-cell text-center" scope="row">#{{ (big_search.page - 1) * big_search.per_page + index +
                                     1 }}</th>
                                 <td class="table-cell displaytext break text-center">{{ record.id }}</td>
-                                <td class="table-cell displaytext break"><a :href="record.src" target="_blank">{{ truncatedTitle(record.name) }}</a></td>
+                                <td class="table-cell displaytext break"><a :href="config.URL + record.src" target="_blank">{{ truncatedTitle(record.name) }}</a></td>
                                 <td class="table-cell displaytext break"><textarea class="form-control" rows="3" v-model="record.content"></textarea></td>
                                 <!-- <td class="table-cell text-center">{{ this.$formatDate2(record.created_at) }}</td> -->
                                 <!-- <td class="table-cell text-center">{{ this.$formatDate2(record.updated_at) }}</td> -->

@@ -20,7 +20,7 @@
                         <div v-if="record.file.id" class="col-12">
                             <div class="row mb-1">
                                 <div class="col-3"><strong><i class="fa-solid fa-file"></i> File Name</strong></div>
-                                <div class="col-9"><a class="text-success" :href="record.file.src" target="_blank"><strong>{{record.file.name }}</strong></a></div>
+                                <div class="col-9"><a class="text-success" :href="config.URL + record.file.src" target="_blank"><strong>{{record.file.name }}</strong></a></div>
                             </div>
                             <div class="row mb-1">
                                 <div class="col-3"><strong><i class="fa-solid fa-folder"></i> Folder Name</strong></div>

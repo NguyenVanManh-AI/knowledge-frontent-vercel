@@ -11,7 +11,7 @@
             <!-- Display files in the current folder -->
             <div v-if="folderData.file && folderData.file.length">
                 <div v-for="(itemFile, index) in folderData.file" :key="index">
-                    <a target="_blank" :href="itemFile.src"><i class="fa-solid fa-file"></i> {{ itemFile.name }}</a>
+                    <a target="_blank" :href="config.URL + itemFile.src"><i class="fa-solid fa-file"></i> {{ itemFile.name }}</a>
                 </div>
             </div>
             <!-- Render children folders recursively -->
