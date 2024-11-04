@@ -5,7 +5,7 @@
                 <i class="fa-solid fa-robot"></i> Chat Bot
             </h3>
         </div>
-        <div class="container-result">
+        <div class="container-result" ref="containerResult">
             <div class="mt-2" id="result">
                 <div v-if="isLoadingHistory" class="d-flex justify-content-center container-loader">
                     <flower-spinner class="loading-component" :animation-duration="2000" :size="30" color="#06C755" />
@@ -145,12 +145,14 @@ export default {
         wait(ms) {
             return new Promise(resolve => setTimeout(resolve, ms));
         },
-        scrollToBottom() { // hiệu ứng cuộn xuống 
+        scrollToBottom() {
             this.$nextTick(() => {
-                const container = this.$el.querySelector('.container-result');
-                container.scrollTop = container.scrollHeight;
+                const container = this.$refs.containerResult;
+                if (container) {
+                    container.scrollTop = container.scrollHeight;
+                }
             });
-        },
+        }
     }
 }
 </script>
