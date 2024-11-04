@@ -1,6 +1,6 @@
 export default {
-	API_URL: 'https://a4ba-42-118-53-185.ngrok-free.app/api/',
-	URL: 'https://a4ba-42-118-53-185.ngrok-free.app',
+	API_URL: 'http://20.2.90.6/api/',
+	URL: 'http://20.2.90.6',
 	// API_URL: 'http://localhost:8000/api/',
 	// URL: 'http://localhost:8000',
 	DOMAIN_CLIENT: 'http://localhost:8080',
