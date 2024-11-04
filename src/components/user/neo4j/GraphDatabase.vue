@@ -9,9 +9,9 @@
         <div class="modal-content">
           <div class="modal-body">
             <a target="_blank" class="text-primary" href="https://workspace-preview.neo4j.io/workspace/query?ntid=google-oauth2%7C116361259175955640215">https://workspace-preview.neo4j.io</a>
-            <br>self.uri = "neo4j+s://ffdfad2c.databases.neo4j.io"                   # Địa chỉ database
+            <br>self.uri = "neo4j+s://f895f551.databases.neo4j.io"                   # Địa chỉ database
             <br>self.username = "neo4j"                                              # Username
-            <br>self.password = "niQisz0U5weBUMit5DuSDTxMXmDsU91qykqIEOJTA4o"        # Password
+            <br>self.password = "CBkTUIkK_Sf2xR82K_UIycrMXwh-l-OEdEY9dNnxro8"        # Password
           </div>
         </div>
       </div>
