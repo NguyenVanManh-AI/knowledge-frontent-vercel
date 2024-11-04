@@ -58,7 +58,7 @@ export default {
 			isShow: false,
 			loginUser: {
 				username: 'admin',
-				password: 'admin'
+				password: '123456'
 			},
 			resetPassword: {
 				email: ''

@@ -22,7 +22,7 @@ describe('Authentication | Login', () => {
 
 	it('log in successfully', () => {
 		cy.get('input[name="username"]').clear().type('admin'); 
-		cy.get('input[name="password"]').clear().type('admin'); 
+		cy.get('input[name="password"]').clear().type('123456'); 
 		cy.get('#login_button').click();
 		cy.url().should('eq', 'http://localhost:8080/dashboard/chat-bot');
 	});
@@ -69,7 +69,7 @@ describe('Folder | Create Folder', () => {
 	beforeEach(() => {
 		cy.visit('http://localhost:8080/login');
 		cy.get('input[name="username"]').clear().type('admin'); 
-		cy.get('input[name="password"]').clear().type('admin'); 
+		cy.get('input[name="password"]').clear().type('123456'); 
 		cy.get('#login_button').click(); 
 		cy.wait(500);
 		cy.visit('http://localhost:8080/dashboard/manage-folder');
@@ -100,7 +100,7 @@ describe('Folder | Update Folder', () => {
 	beforeEach(() => {
 		cy.visit('http://localhost:8080/login');
 		cy.get('input[name="username"]').clear().type('admin'); 
-		cy.get('input[name="password"]').clear().type('admin'); 
+		cy.get('input[name="password"]').clear().type('123456'); 
 		cy.get('#login_button').click(); 
 		cy.wait(500);
 		cy.visit('http://localhost:8080/dashboard/manage-folder');
@@ -134,7 +134,7 @@ describe('Folder | Delete Folder', () => {
 	beforeEach(() => {
 		cy.visit('http://localhost:8080/login');
 		cy.get('input[name="username"]').clear().type('admin'); 
-		cy.get('input[name="password"]').clear().type('admin'); 
+		cy.get('input[name="password"]').clear().type('123456'); 
 		cy.get('#login_button').click(); 
 		cy.wait(500);
 		cy.visit('http://localhost:8080/dashboard/manage-folder');
@@ -176,7 +176,7 @@ describe('Folder | Search Sort Pagination', () => {
 	beforeEach(() => {
 		cy.visit('http://localhost:8080/login');
 		cy.get('input[name="username"]').clear().type('admin'); 
-		cy.get('input[name="password"]').clear().type('admin'); 
+		cy.get('input[name="password"]').clear().type('123456'); 
 		cy.get('#login_button').click(); 
 		cy.wait(500);
 		cy.visit('http://localhost:8080/dashboard/manage-folder');
@@ -231,7 +231,7 @@ describe('File | Create File', () => {
 	beforeEach(() => {
 		cy.visit('http://localhost:8080/login');
 		cy.get('input[name="username"]').clear().type('admin'); 
-		cy.get('input[name="password"]').clear().type('admin'); 
+		cy.get('input[name="password"]').clear().type('123456'); 
 		cy.get('#login_button').click(); 
 		cy.wait(500);
 		cy.visit('http://localhost:8080/dashboard/manage-file');
@@ -292,7 +292,7 @@ describe('File | Update File', () => {
 	beforeEach(() => {
 		cy.visit('http://localhost:8080/login');
 		cy.get('input[name="username"]').clear().type('admin'); 
-		cy.get('input[name="password"]').clear().type('admin'); 
+		cy.get('input[name="password"]').clear().type('123456'); 
 		cy.get('#login_button').click(); 
 		cy.wait(500);
 		cy.visit('http://localhost:8080/dashboard/manage-file');
@@ -327,7 +327,7 @@ describe('File | Delete File', () => {
 	beforeEach(() => {
 		cy.visit('http://localhost:8080/login');
 		cy.get('input[name="username"]').clear().type('admin'); 
-		cy.get('input[name="password"]').clear().type('admin'); 
+		cy.get('input[name="password"]').clear().type('123456'); 
 		cy.get('#login_button').click(); 
 		cy.wait(500);
 		cy.visit('http://localhost:8080/dashboard/manage-file');
@@ -370,7 +370,7 @@ describe('File | Search Sort Pagination', () => {
 	beforeEach(() => {
 		cy.visit('http://localhost:8080/login');
 		cy.get('input[name="username"]').clear().type('admin'); 
-		cy.get('input[name="password"]').clear().type('admin'); 
+		cy.get('input[name="password"]').clear().type('123456'); 
 		cy.get('#login_button').click(); 
 		cy.wait(1000);
 		cy.visit('http://localhost:8080/dashboard/manage-file');
