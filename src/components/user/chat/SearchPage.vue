@@ -63,14 +63,14 @@ export default {
             chats: [],
             texts: [],
             user: {
-				id: null,
-				username: null,
-				email: null,
-				first_name: null,
-				last_name: null,
-				access_token: null,
+                id: null,
+                username: null,
+                email: null,
+                first_name: null,
+                last_name: null,
+                access_token: null,
                 role: null,
-			},
+            },
         }
     },
     mounted() {
@@ -86,7 +86,7 @@ export default {
         async getHistoryChat() {
             this.isLoadingHistory = true;
             try {
-                var { data } = await UserRequest.get('chatbot/history/?id_user='+this.user.id);
+                var { data } = await UserRequest.get('chatbot/history/?id_user=' + this.user.id);
                 this.chats = data;
                 this.isLoadingHistory = false;
             }
@@ -97,30 +97,46 @@ export default {
         },
         async searchPaper() { // với cách này đã cải thiện tốc độ gõ 
             this.isLoading = true;
+            var dataSubmit = {
+                question: this.searchQuery,
+            };
+            var question_id = `typed-text-${Math.random().toString(36).substr(2, 9)}`
             try {
-                var dataSubmit = {
-                    question: this.searchQuery,
-                };
-                var question_id = `typed-text-${Math.random().toString(36).substr(2, 9)}`
                 this.texts.push(
-                    { 
-                        type: 'question', 
+                    {
+                        type: 'question',
                         contentvalue: {
-                            'question_content' : this.searchQuery,
-                            'question_id' : question_id,
+                            'question_content': this.searchQuery,
+                            'question_id': question_id,
                         }
                     },
                 );
                 this.searchQuery = '';
                 const { data } = await UserRequest.post('chatbot/', dataSubmit);
-                this.addResultsSequentially(data.answer, data.cypher, question_id);
-                this.addNewChat(dataSubmit.question, data.answer);
-                this.$emitEvent('eventSuccess', 'Search success !');
+                if(data.answer) {
+                    var new_answer2 = data.answer;
+                    if(data.answer === 'No answer for this question') {
+                        new_answer2 = 'Dữ liệu cho câu hỏi này không có trong đồ thị !';
+                    }
+                    this.addResultsSequentially(new_answer2, data.cypher, question_id);
+                    this.addNewChat(dataSubmit.question, new_answer2);
+                    this.$emitEvent('eventSuccess', 'Search success !');
+                } 
                 this.isLoading = false;
             }
             catch (error) {
                 this.isLoading = false;
-                if (error.messages) this.$emitEvent('eventError', error.messages[0]);
+                if (error.messages) {
+                    if (error.messages[0] === 'division by zero') {
+                        var new_answer = 'Dữ liệu cho câu hỏi này không có trong đồ thị !';
+                        this.addResultsSequentially(new_answer, '', question_id);
+                        this.addNewChat(dataSubmit.question, new_answer);
+                        this.$emitEvent('eventSuccess', 'Search success !');
+                    }
+                    else {
+                        this.$emitEvent('eventError', error.messages[0]);
+                    }
+                }
             }
         },
         async addNewChat(question, answer) {
@@ -138,12 +154,12 @@ export default {
         },
         async addResultsSequentially(answer, cypher, id_question) {
             this.texts.push(
-                { 
-                    type: 'result', 
+                {
+                    type: 'result',
                     contentvalue: {
-                        'answer' : answer, 
-                        'cypher' : cypher,
-                        'id_question' : id_question
+                        'answer': answer,
+                        'cypher': cypher,
+                        'id_question': id_question
                     }
                 }
             );
