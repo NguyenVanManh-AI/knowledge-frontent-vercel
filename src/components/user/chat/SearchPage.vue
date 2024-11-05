@@ -61,12 +61,22 @@ export default {
             config: config,
             searchQuery: '',
             chats: [],
-            texts: []
+            texts: [],
+            user: {
+				id: null,
+				username: null,
+				email: null,
+				first_name: null,
+				last_name: null,
+				access_token: null,
+                role: null,
+			},
         }
     },
     mounted() {
         this.$emitEvent('eventTitleHeader', 'Chat Bot');
         document.title = "Chat Bot | Knowledge Advanced";
+        this.user = JSON.parse(window.localStorage.getItem('user'));
         this.getHistoryChat();
     },
     updated() {
@@ -76,7 +86,7 @@ export default {
         async getHistoryChat() {
             this.isLoadingHistory = true;
             try {
-                var { data } = await UserRequest.get('chatbot/history/');
+                var { data } = await UserRequest.get('chatbot/history/?id_user='+this.user.id);
                 this.chats = data;
                 this.isLoadingHistory = false;
             }
